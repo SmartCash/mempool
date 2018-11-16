@@ -1,7 +1,4 @@
-# Bitcoin Mempool Statistics
-
-This is the code to create the mempool statistics for bitcoin that are online
-at https://jochen-hoenicke.de/queue/
+# SmartCash Mempool Statistics
 
 ## Installation: Part 1 - Logging
 
@@ -15,14 +12,14 @@ his home directory:
 
     sudo -H -u mempool bash
     cd $HOME
-    git clone https://github.com/jhoenicke/mempool
+    git clone https://github.com/smartcash/mempool
 
 Edit `mempool.sh` to adapt paths as necessary, especially the path to 
 bitcoin-cli.  Add a bitcoin.conf with rpcuser/rpcpassword settings to 
-`/home/mempool/.bitcoin`, to be able to use bitcoin-cli.  You can test your
+`/home/mempool/.smartcash`, to be able to use bitcoin-cli.  You can test your
 setup by running
 
-    bitcoin-cli getmempoolinfo
+    smartcash-cli getmempoolinfo
 
 Install `mysql` and create a database. Then you can test your
 configuration by running mempool.sh.  If you don't want to use mysql,
