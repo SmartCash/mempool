@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
-    <title>Johoe's Bitcoin Mempool Size Statistics</title>
+    <title>SmartCash Mempool Size Statistics</title>
     <script src="../flot/jquery.min.js"></script>
     <script src="../flot/jquery.flot.min.js"></script>
     <script src="../flot/jquery.flot.time.min.js"></script>
@@ -14,14 +14,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="Content-Language" content="en"/>
     <meta name="author" content="Jochen Hoenicke"/>
-    <meta name="keywords" content="Jochen Hoenicke, Bitcoin, Mempool, Statistics"/>
-    <meta name="description" content="Johoe's Bitcoin Mempool Size Statistics"/>
+    <meta name="keywords" content="Jochen Hoenicke, SmartCash, Mempool, Statistics"/>
+    <meta name="description" content="Johoe's SmartCash Mempool Size Statistics"/>
     <meta property="og:image" content="https://jochen-hoenicke.de/queue/mempool-20180219.png"/>
     <link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
   <div class="header">
-    <b>Johoe's Bitcoin Mempool Statistics</b> &ndash;
+    <b>SmartCash Mempool Statistics</b> &ndash;
     <div id="configs" style="display: inline-block;"></div>
     &ndash; <div id="periods" style="display: inline-block;">Period: </div>
   </div>
@@ -34,8 +34,8 @@
   </script>
   <div>
     <p>
-      This page displays the number and size of the unconfirmed bitcoin transactions, also known as the transactions in the <b>mempool</b>. It gives a real-time view and shows how the mempool evolves over the time.  The transactions are colored by the amount of fee they pay per byte.  The data is generated from my full node and is updated every minute.  Note that in bitcoin there is no global mempool; every node keeps its own set of unconfirmed transactions that it has seen.  The mempool is also cleared when I reboot my node.
-      The idea is based on the retired service bitcoinqueue.com.
+      This page displays the number and size of the unconfirmed smartcash transactions, also known as the transactions in the <b>mempool</b>. It gives a real-time view and shows how the mempool evolves over the time.  The transactions are colored by the amount of fee they pay per byte.  The data is generated from my full node and is updated every minute.  Note that in smartcash there is no global mempool; every node keeps its own set of unconfirmed transactions that it has seen.  The mempool is also cleared when I reboot my node.
+      The idea is based on the retired service smartcashqueue.com.
     </p>
     <p>The data is separated into different fee levels given in satoshi per bytes.  The lowest colored stripe is for transactions that pay the lowest fee.  Higher fee transactions are stacked on top of it.  Since miners prefer high fee transactions, a new block usually only removes the top 1 MB from the queue.  If a colored stripe persists over several hours without getting smaller, this means that transactions paying this amount of fee are not confirmed during this time, because there are higher paying transactions that take precedence.  If a stripe on the bottom chart is much bigger than on the top chart, the transactions are larger than the average.</p>
 
@@ -43,33 +43,4 @@
 
     <p>Note that sizes include the segwit discount.  So for the core chain, a block will always take at most 1 MB from the mempool, even if it is bigger than 1&nbsp;MB, because the lower diagram already shows the size minus three quarter of the witness size.  The segwit discount is also included when computing the fee level for a transaction.  In case a transaction pays exactly the fee that defines the boundary between stripes, it is included in the higher stripe.  Free transactions are not included, even if they make it into the mempool.</p>
    </div>
-
-   <h2>Donation Addresses</h2>
-    <div class="centered">
-      <div class="donation">
-        <a href="bitcoin:bc1qs5q679tac0uvfunt0gdwuymves5re7v7q8fntv"><div class="qrcontainer"><img class="cover pixelated qrcode" width="148" height="148" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAlAQMAAAD/ULJAAAAABlBMVEX///8AAABVwtN+AAAA0UlEQVQI12NABvatT/kfMCjsM/BQYNBbq+O9gEGvtTMbRO54vYBBYYYmUNx+1ar1DxgY+FkVGBhkezIOHGCwkb3EosAgMIv7fAODarrpzgQGsduHNyxgkEoycklgsFj7XcaBQcft4yIGBo7lzOUKDII5LT0LGLSmW2smMIi4Cvx2YBCe9uQgA4OGT9L2BQzcF6brLGAQze/ybWDQ7hexA1pjoJ0MtHfSbi2g29Z1JAHdNunC/wcMevtZ1zAw6C07lcbAoLB9twjQ/X1bnA8gewgAMu1BFLs54BYAAAAASUVORK5CYII=" alt=""/><img class="qrlogo" src="bc-logo-32x32.png" alt=""/></div></a><a href="#" onClick="window.open('../lightning/','ln','resizeable,height=600,width=500'); return false;"><img class="bolt" src="../lightning/lightning-bolt.png" alt="lightning" /></a><br />
-        bitcoin:<a href="bitcoin:bc1qs5q679tac0uvfunt0gdwuymves5re7v7q8fntv">bc1qs5q679tac0uvfunt0gdwuymves5re7v7q8fntv</a><br/>
-        (old bitcoin:<a href="bitcoin:3LrXizKejCGYyGUxYzGweyuxFVtfs3odEe">3LrXizKejCGYyGUxYzGweyuxFVtfs3odEe</a>)
-      </div>
-      <div class="donation">
-        <a href="bitcoincash:qqc0a3s49uzj329rju4v27erlc6kx5paqs6t5l70n6"><div class="qrcontainer"><img class="cover pixelated qrcode" width="148" height="148" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAlAQMAAAD/ULJAAAAABlBMVEX///8AAABVwtN+AAAA00lEQVQI12NABvYTMvsfMChsuHZCgUGv6/7qBQx6+xSygeSe00BSodsKKG6/atX6BwwMKt8cGBjEF/NJOzAwemu0MTCwPIzNd2Aw95l0ZgED6zbpiQ8YFEOPuiswcJ06qOzAYM+d+3cBA9Mds5MLGHiNT9YqMOj8EytKYOBg2xm1gEH7y/T6BgYTg0k3GBhU9xf6LWDQYRTkfsBgtivU7gADg57QogUM9tOfr3JgUFi/SgkosDS9PoFBb/cinQMMejN3PwG6ea2jJtCWvpftB5A9BAB0VkYyusTI4gAAAABJRU5ErkJggg==" alt=""/><img class="qrlogo" src="bch-logo-30.png" alt=""/></div></a><br/>
-        <a href="bitcoincash:qqc0a3s49uzj329rju4v27erlc6kx5paqs6t5l70n6">bitcoincash:qqc0a3s49uzj329rju4v27erlc6kx5paqs6t5l70n6</a><br/>
-        (old bitcoincash:<a href="bitcoincash:15U4eCYkRBQZMLALWC4WqapVS9Qi8zyFut">15U4eCYkRBQZMLALWC4WqapVS9Qi8zyFut</a>)
-      </div>
-      <div class="donation">
-        <a href="litecoin:ltc1qp2qsuh73rrj8gxpvw65ck554qfnv8s5pke3qzm"><div class="qrcontainer"><img class="cover pixelated qrcode" width="148" height="148" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAlAQMAAAD/ULJAAAAABlBMVEX///8AAABVwtN+AAAA1ElEQVQI12NABvZTW9Y/YFDojj2hwKA3vWv1Aga9Za9OA8nJ+14vYFDY9LlDgcF+1SqgGgY1DwcGBom2u7oMDLLxCVkPGASe2O9OYBDOWnNTgcH22v32BwxmjtKvHjCIvZiV94BBqVB8IQOD9J0bmxkYFIVL9Q8wyK2LE0xgEKlbH/aAgeu0pOMCBkbWB4wJDGY/dGoeMDAnGgYpMJjfELU/wMBg8OnxAaDbQlc1MChM+LcI6La50f8aGPQaTy08wKC3taof6ObFYl1At034mJuA7CEA8yNLCukmy7UAAAAASUVORK5CYII=" alt=""/><img class="qrlogo" src="ltc-32px.png" alt=""/></div></a><br />
-        litecoin:<a href="litecoin:ltc1qp2qsuh73rrj8gxpvw65ck554qfnv8s5pke3qzm">ltc1qp2qsuh73rrj8gxpvw65ck554qfnv8s5pke3qzm</a><br/>
-        (old litecoin:<a href="litecoin:MK7jfGG48RTsETCXTAz1wP27uVoFhBUV5o">MK7jfGG48RTsETCXTAz1wP27uVoFhBUV5o</a>)
-      </div>
-      <div class="donation">
-        <a href="dash:XhvBxZ5WiTK7K8js4uphXCP5QjFQMogAMk"><div class="qrcontainer"><img class="cover pixelated qrcode" width="148" height="148" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAlAQMAAAD/ULJAAAAABlBMVEX///8AAABVwtN+AAAA0UlEQVQI12NABvZr1c4/YFBYap6hwKC3bJn3Aga9raKngeRKxu4FDAp9N4Hi9qtWrX/AwKBavICBQepcCPcDBmXFUy8ZGERPbWJ+wGCfq/jPgYF1paolA4NYylXDBwzq/RPkgOIBsjYODPzPZ0U8YBA3KRJMYNBZUb07gUE2t3eeA4Pw3WP/FBjYOb4pJjBod17vT2CQ5yn+ocCg+bH3P9Au4wWLFzDY72vUArptBocyA4Pemhr7BAa9GaqOQHKtoxjQbWu2XndgsJ+yqDIB2UMAFahFDpSQnIQAAAAASUVORK5CYII=" alt=""/><img class="qrlogo" src="dash-32px.png" alt=""/></div></a><br />
-        dash:<a href="dash:XhvBxZ5WiTK7K8js4uphXCP5QjFQMogAMk">XhvBxZ5WiTK7K8js4uphXCP5QjFQMogAMk</a><br/>&nbsp;
-      </div>
-        <p>
-        ethereum: <span class="cover pixelated" style="width: 20px;height:20px; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAgMAAAC5YVYYAAAACVBMVEWV5Xgyfg0qispl6+N0AAAAH0lEQVQI12NwYGRwdGQIDWVQkWBwEWSYwMagNgMoAgAqGwPVVzuqWQAAAABJRU5ErkJggg==); border-radius: 50%; display: inline-block;"></span>&nbsp;mempool.hoenicke.eth</p>
-    </div>
-    <div class="centered" style="font-size: 13px; margin: 20px;">
-        Source code on github: <a href="https://github.com/jhoenicke/mempool">https://github.com/jhoenicke/mempool</a><br/>
-        © 2016-2018 <a href="https://jochen-hoenicke.de/">Jochen Hoenicke</a>
-    </div>
 </html>

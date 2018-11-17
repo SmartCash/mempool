@@ -30,19 +30,19 @@
 </div>
 <div id="setamount" class="tabcontent">
    Pay for server time <span class="footnotebox"><a href="#" onclick="toggle('footnote1')">[*]</a><span id="footnote1" class="footnote" style="display:none;">
-   Server cost is 47 €/month, (<span id="btcprice">5400</span> €/BTC).<br/>
+   Server cost is 47 €/month, (<span id="btcprice">5400</span> €/SMART).<br/>
    So one day costs 1.55 €.
 </span></span>:
    <input type="button" value="1 hour" onclick="setvalue(.06431)" />
    <input type="button" value="1 day" onclick="setvalue(1.543)" />
    <input type="button" value="1 week" onclick="setvalue(10.80)" />
    <input type="button" value="1 month" onclick="setvalue(46.98)" /><br/>
-   <p>or amount in bits (microbitcoin): <input type="number" id="value" size="8" value="" /></p>
+   <p>or amount in bits (microsmartcash): <input type="number" id="value" size="8" value="" /></p>
    <p>Memo: <input type="text" id="memo" size="30" value="Donation for Johoe's mempool" /></p>
    <input type="button" value="Get invoice" onclick="invoice()" />
 </div>
 <script>
-  var bitcoinprice = 5550;
+  var smartcashprice = 5550;
   var border = 4;
   var scale = 4;
   var uri = "0358327cb80ab2a8db36a5924c62966c7b4a753045600df594aa3863ecb618cc5d@37.221.198.57:9735";
@@ -52,7 +52,7 @@
   var paymentrhash;
 
   function setvalue(value) {
-    var valinbits = Math.floor((value * 1000000.0 / bitcoinprice) + 0.5);
+    var valinbits = Math.floor((value * 1000000.0 / smartcashprice) + 0.5);
     document.getElementById("value").value = valinbits;
   }
 
@@ -129,7 +129,7 @@
     xhttp.send();
   }
 
-  document.getElementById("btcprice").innerHTML = bitcoinprice;
+  document.getElementById("btcprice").innerHTML = smartcashprice;
   var xhttpbtc = new XMLHttpRequest();
   xhttpbtc.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -137,13 +137,13 @@
       var pricestr = response.price_eur;
       pricestr = pricestr.replace(/\./g, "");
       pricestr = pricestr.replace(/,/g, ".");
-      bitcoinprice = parseFloat(pricestr);
-      document.getElementById("btcprice").innerHTML = bitcoinprice;
+      smartcashprice = parseFloat(pricestr);
+      document.getElementById("btcprice").innerHTML = smartcashprice;
     }
   }
   function loadDoc() {
     requestInvoice(0, "Donation to Johoe's mempool");
-    xhttpbtc.open("GET", "https://bitcoinapi.de/widget/current-btc-price/rate.json?culture=de", true);
+    xhttpbtc.open("GET", "https://smartcashapi.de/widget/current-btc-price/rate.json?culture=de", true);
     xhttpbtc.send();
   }
 

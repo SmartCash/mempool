@@ -1,4 +1,4 @@
-Johoe's lightning setup
+Lightning setup
 =======================
 
 The web/lnd directory contains two python scripts that connect to an instance

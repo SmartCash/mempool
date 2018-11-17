@@ -1,6 +1,6 @@
 <?php
 /* 
-    Bitcoin Mempool Visualization
+    SmartCash Mempool Visualization
     Copyright (C) 2017  Jochen Hoenicke
 
     This program is free software: you can redistribute it and/or modify

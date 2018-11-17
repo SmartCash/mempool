@@ -1,5 +1,5 @@
 /*
-    Bitcoin Mempool Visualization
+    SmartCash Mempool Visualization
     Copyright (C) 2017  Jochen Hoenicke
 
     This program is free software: you can redistribute it and/or modify
@@ -18,9 +18,9 @@
 
 var charts;
 var config = [
-    {"name":"BTC",
+    {"name":"SMART",
      "url":"https://dedi.jochen-hoenicke.de/queue/",
-     "symbol":"BTC",
+     "symbol":"SMART",
      "satPerUnit": 100000000.0,
      "feelevel": 1,
      "ranges": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 12, 14, 17, 20, 25, 30, 40, 50, 60, 70, 80, 100, 120, 140, 170, 200, 250, 300, 400, 500, 600, 700, 800, 1000, 1200, 1400, 1700, 2000, 2500, 3000, 4000, 5000, 6000, 7000, 8000, 10000 ],
@@ -34,9 +34,9 @@ var config = [
    "#000000"
              ],
      "inc": true},
-    {"name":"BTC (default mempool)",
+    {"name":"SMART (default mempool)",
      "url":"https://core.jochen-hoenicke.de/queue/",
-     "symbol":"BTC",
+     "symbol":"SMART",
      "satPerUnit": 100000000.0,
      "feelevel": 0,
      "ranges": [ 0, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000 ],

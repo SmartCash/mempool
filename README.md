@@ -2,9 +2,9 @@
 
 ## Installation: Part 1 - Logging
 
-You need to be running a bitcoin full node.  It can be a pruned node or an
+You need to be running a smartcash full node.  It can be a pruned node or an
 archival node.  I assume you have already set it up.  You also need to
-support RPC to this node.  Add rpcuser/rpcpassword to bitcoin.conf to enable
+support RPC to this node.  Add rpcuser/rpcpassword to smartcash.conf to enable
 this.
 
 I recommend to create a new user `mempool`.   Checkout this repository into
@@ -15,8 +15,8 @@ his home directory:
     git clone https://github.com/smartcash/mempool
 
 Edit `mempool.sh` to adapt paths as necessary, especially the path to 
-bitcoin-cli.  Add a bitcoin.conf with rpcuser/rpcpassword settings to 
-`/home/mempool/.smartcash`, to be able to use bitcoin-cli.  You can test your
+smartcash-cli.  Add a smartcash.conf with rpcuser/rpcpassword settings to 
+`/home/mempool/.smartcash`, to be able to use smartcash-cli.  You can test your
 setup by running
 
     smartcash-cli getmempoolinfo

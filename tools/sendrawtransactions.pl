@@ -5,11 +5,11 @@ use Data::Dumper;
 
 my $port = 8332;
 
-if (open COOKIE, "<$ENV{HOME}/.bitcoin/.cookie") {
+if (open COOKIE, "<$ENV{HOME}/.smartcash/.cookie") {
     $_=<COOKIE>;
     ($user,$pwd) = split ":", $_;
     close COOKIE;
-} elsif (open CONFIG, "<$ENV{HOME}/.bitcoin/bitcoin.conf") {
+} elsif (open CONFIG, "<$ENV{HOME}/.smartcash/smartcash.conf") {
     while (<CONFIG>) {
         /rpcuser=(.*)/ and $user = $1;
         /rpcpassword=(.*)/ and $pwd = $1;

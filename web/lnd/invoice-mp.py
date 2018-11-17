@@ -16,7 +16,7 @@ def main():
     with open('/home/lnd/.lnd/tls.cert', 'rb') as f:
         cert = f.read()
 
-    with open('/home/lnd/.lnd/data/chain/bitcoin/mainnet/invoice.macaroon', 'rb') as f:
+    with open('/home/lnd/.lnd/data/chain/smartcash/mainnet/invoice.macaroon', 'rb') as f:
         macaroon_bytes = f.read()
         macaroon = codecs.encode(macaroon_bytes, 'hex')
 
@@ -36,7 +36,7 @@ def main():
     channel = grpc.secure_channel('localhost:10009', combined_creds)
     stub = lnrpc.LightningStub(channel)
 
-    invoice = stub.AddInvoice(ln.Invoice(memo="Donation for Johoe's Mempool"))
+    invoice = stub.AddInvoice(ln.Invoice(memo="Donation for Mempool"))
     print("Content-Type: application/json; charset=UTF-8")
     print("")
     print('{"r_hash":"%s","payment_request":"%s","add_index":%d}' % (binascii.hexlify(invoice.r_hash),invoice.payment_request,invoice.add_index))

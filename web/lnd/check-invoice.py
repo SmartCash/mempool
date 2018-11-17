@@ -16,7 +16,7 @@ def connect():
     with open('/home/lnd/.lnd/tls.cert', 'rb') as f:
         cert = f.read()
 
-    with open('/home/lnd/.lnd/data/chain/bitcoin/mainnet/invoice.macaroon', 'rb') as f:
+    with open('/home/lnd/.lnd/data/chain/smartcash/mainnet/invoice.macaroon', 'rb') as f:
         macaroon_bytes = f.read()
         macaroon = codecs.encode(macaroon_bytes, 'hex')
 
