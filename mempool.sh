@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DESTDIR=/dev/shm/mempool-smart
-BITCOINCLI=/home/smartcash/bin/smartcash-cli
+BITCOINCLI=/usr/bin/smartcash-cli
 MEMPOOLHOME=/home/mempool/mempool
 TMPFILE=$DESTDIR/rawdump.txt
 

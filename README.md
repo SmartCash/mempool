@@ -28,11 +28,11 @@ comment out the four lines starting with `open(SQL` at the end of
 webinterface won't work.
 
     sudo apt install mysql_server
-    mysql_secure_installation
-    mysql -u root -p <<EOF
+    sudo mysql_secure_installation
+    sudo mysql -u root -p <<EOF
     create database btc_mempool;
-    grant all privileges on btc_mempool.* TO 'mempool'@'localhost' identified by '<secret password>';
-    grant select on btc_mempool.* TO 'www'@'localhost' identified by '<redacted>';
+    grant all privileges on smart_mempool.* TO 'mempool'@'localhost' identified by '<secret password>';
+    grant select on smart_mempool.* TO 'www'@'localhost' identified by '<redacted>';
     EOF
     cat > ~/.my.cnf <<EOF
     [client]
@@ -40,7 +40,7 @@ webinterface won't work.
     password=<secret password>
     EOF
     cd mempool
-    perl mempool-create.pl | mysql btc_mempool
+    perl mempool-create.pl | mysql smart_mempool
     ./mempool.sh
 
 You are almost ready now.  Check that everything works.  There should be a
@@ -55,8 +55,8 @@ entry (using `crontab -e`):
 
 Install a web server of your choice.  For refreshing/zooming you need
 php and php-mysql.  Then link/copy the web subdirectory to the web
-root.  Finally link to the dynamic js files in `/dev/shm/mempool-btc`.
+root.  Finally link to the dynamic js files in `/dev/shm/mempool-smart`.
 
     cd $HOME/mempool/web/queue
     sudo ln -s $HOME/mempool/web/* /var/www/html
-    ln -s /dev/shm/mempool-btc/*.js $HOME/mempool/web/queue/
+    ln -s /dev/shm/mempool-smart/*.js $HOME/mempool/web/queue/

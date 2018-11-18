@@ -6,7 +6,7 @@ from subprocess import PIPE, Popen
 
 MYSQL = "/usr/bin/mysql"
 MEMPOOLLOG = "mempool.log"
-MYSQLMEMPOOLDB = "btc_mempool"
+MYSQLMEMPOOLDB = "smart_mempool"
 
 FEELIMIT = [0.0001, 1, 2, 3, 4, 5, 6, 7, 8, 10,
             12, 14, 17, 20, 25, 30, 40, 50, 60, 70, 80, 100,

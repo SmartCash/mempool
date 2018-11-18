@@ -19,7 +19,7 @@
 var charts;
 var config = [
     {"name":"SMART",
-     "url":"https://dedi.jochen-hoenicke.de/queue/",
+     "url":"/",
      "symbol":"SMART",
      "satPerUnit": 100000000.0,
      "feelevel": 1,
@@ -34,9 +34,9 @@ var config = [
    "#000000"
              ],
      "inc": true},
-    {"name":"SMART (default mempool)",
+    {"name":"BTC",
      "url":"https://core.jochen-hoenicke.de/queue/",
-     "symbol":"SMART",
+     "symbol":"BTC",
      "satPerUnit": 100000000.0,
      "feelevel": 0,
      "ranges": [ 0, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000 ],

@@ -18,7 +18,7 @@
 */
 
 $dbtype = "mysql";
-$dbdatabase = "dbname=btc_mempool;host=localhost";
+$dbdatabase = "dbname=smart_mempool;host=localhost";
 $dbdsn = "$dbtype:$dbdatabase";
 $dbuser = "www";
 $dbpass = "<redacted>";
