@@ -1,17 +1,23 @@
 # SmartCash Mempool Statistics
 
-## Installation: Part 1 - Logging
+## Installation: Part 1
 
-You need to be running a smartcash full node.  It can be a pruned node or an
-archival node.  I assume you have already set it up.  You also need to
-support RPC to this node.  Add rpcuser/rpcpassword to smartcash.conf to enable
-this.
+Create user with sudo rights called mempool.
 
-I recommend to create a new user `mempool`.   Checkout this repository into
-his home directory:
+    Install smarcashd by PPA
+    sudo add-apt-repository ppa:smartcash/ppa -y
+    sudo apt-get update
+    sudo apt-get install smartcashd -y
+    smartcash-cli stop
 
-    sudo -H -u mempool bash
-    cd $HOME
+Edit the config file with nano and press control x to save and exit.
+    nano smartcash.conf
+      daemon=1
+      rpcuser=mempool
+      rpcpassword=mempool
+    smartcashd
+
+    sudo apt-get install git
     git clone https://github.com/smartcash/mempool
 
 Edit `mempool.sh` to adapt paths as necessary, especially the path to 
@@ -30,14 +36,14 @@ webinterface won't work.
     sudo apt install mysql_server
     sudo mysql_secure_installation
     sudo mysql -u root -p <<EOF
-    create database btc_mempool;
-    grant all privileges on smart_mempool.* TO 'mempool'@'localhost' identified by '<secret password>';
-    grant select on smart_mempool.* TO 'www'@'localhost' identified by '<redacted>';
+    create database smart_mempool;
+    grant all privileges on smart_mempool.* TO 'mempool'@'localhost' identified by 'mempool';
+    grant select on smart_mempool.* TO 'www'@'localhost' identified by 'mempool';
     EOF
     cat > ~/.my.cnf <<EOF
     [client]
     user=mempool
-    password=<secret password>
+    password=mempool
     EOF
     cd mempool
     perl mempool-create.pl | mysql smart_mempool
@@ -53,10 +59,22 @@ entry (using `crontab -e`):
 
 ## Installation: Part 2 - Web service
 
-Install a web server of your choice.  For refreshing/zooming you need
-php and php-mysql.  Then link/copy the web subdirectory to the web
-root.  Finally link to the dynamic js files in `/dev/shm/mempool-smart`.
 
-    cd $HOME/mempool/web/queue
-    sudo ln -s $HOME/mempool/web/* /var/www/html
-    ln -s /dev/shm/mempool-smart/*.js $HOME/mempool/web/queue/
+
+Install a web server, copy files to web directory, and link data.
+
+    sudo apt-get install apache2
+    sudo nano /etc/apache2/sites_enabled/000_default
+      document parth=/var/www/html/mempool
+
+    sudo mkdir /var/www/html/mempool
+    sudo cp -r $HOME/mempool/web/* /var/www/html/mempool/
+    ln -s /dev/shm/mempool-smart/*.js /var/www/html/mempool/queue/
+
+Restart webserver for changes to take effect.
+    sudo systemctl restart apache2.service
+
+Start on startup of with crontab with @reboot
+    service mysql start
+    smartcashd
+    

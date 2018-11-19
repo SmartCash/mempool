@@ -2,22 +2,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <title>SmartCash Mempool Size Statistics</title>
-    <script src="../flot/jquery.min.js"></script>
-    <script src="../flot/jquery.flot.min.js"></script>
-    <script src="../flot/jquery.flot.time.min.js"></script>
-    <script src="../flot/jquery.flot.stack.min.js"></script>
-    <script src="../flot/jquery.flot.resize.min.js"></script>
-    <script src="../flot/jquery.flot.selection.min.js"></script>
-    <script src="../flot/jquery.flot.navigate.min.js"></script>
-    <script src="mempool.js"></script>
+    <script src="flot/jquery.min.js"></script>
+    <script src="flot/jquery.flot.min.js"></script>
+    <script src="flot/jquery.flot.time.min.js"></script>
+    <script src="flot/jquery.flot.stack.min.js"></script>
+    <script src="flot/jquery.flot.resize.min.js"></script>
+    <script src="flot/jquery.flot.selection.min.js"></script>
+    <script src="flot/jquery.flot.navigate.min.js"></script>
+    <script src="queue/mempool.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="Content-Language" content="en"/>
-    <meta name="author" content="Jochen Hoenicke"/>
-    <meta name="keywords" content="Jochen Hoenicke, Bitcoin, Mempool, Statistics"/>
-    <meta name="description" content="Johoe's Bitcoin Mempool Size Statistics"/>
+    <meta name="author" content="SmartCash"/>
+    <meta name="keywords" content="SmartCash, Mempool, Statistics"/>
+    <meta name="description" content="SmartCash Mempool Size Statistics"/>
     <meta property="og:image" content="https://jochen-hoenicke.de/queue/mempool-20180219.png"/>
-    <link href="style.css" rel="stylesheet" type="text/css"/>
+    <link href="queue/style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
   <div class="header">
@@ -35,7 +35,6 @@
   <div>
     <p>
       This page displays the number and size of the unconfirmed transactions, also known as the transactions in the <b>mempool</b>. It gives a real-time view and shows how the mempool evolves over the time.  The transactions are colored by the amount of fee they pay per byte.  The data is generated from my full node and is updated every minute.  Note that in bitcoin there is no global mempool; every node keeps its own set of unconfirmed transactions that it has seen.  The mempool is also cleared when I reboot my node.
-      The idea is based on the retired service bitcoinqueue.com.
     </p>
     <p>The data is separated into different fee levels given in satoshi per bytes.  The lowest colored stripe is for transactions that pay the lowest fee.  Higher fee transactions are stacked on top of it.  Since miners prefer high fee transactions, a new block usually only removes the top 1 MB from the queue.  If a colored stripe persists over several hours without getting smaller, this means that transactions paying this amount of fee are not confirmed during this time, because there are higher paying transactions that take precedence.  If a stripe on the bottom chart is much bigger than on the top chart, the transactions are larger than the average.</p>
 
