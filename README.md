@@ -73,6 +73,6 @@ Restart webserver for changes to take effect.
     sudo systemctl restart apache2.service
 
 Start on startup or with crontab with @reboot
+
     service mysql start
     smartcashd
-    
