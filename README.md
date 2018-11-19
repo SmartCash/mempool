@@ -51,7 +51,7 @@ webinterface won't work.
 
 You are almost ready now.  Check that everything works.  There should be a
 file `mempool.log` containing one line of statistics.  There should be
-newly created files in `/dev/shm/mempool-btc` that contain the dynamic data the
+newly created files in `/dev/shm/mempool-smart` that contain the dynamic data the
 webserver should serve.  If everything looks fine add the following crontab 
 entry (using `crontab -e`):
 
@@ -59,22 +59,20 @@ entry (using `crontab -e`):
 
 ## Installation: Part 2 - Web service
 
-
-
 Install a web server, copy files to web directory, and link data.
 
     sudo apt-get install apache2
-    sudo nano /etc/apache2/sites_enabled/000_default
-      document parth=/var/www/html/mempool
-
-    sudo mkdir /var/www/html/mempool
+    sudo nano /etc/apache2/sites_enabled/000-default.conf
+      document path=/var/www/mempool
+    (control x to save and quit)
+    sudo mkdir /var/www/mempool
     sudo cp -r $HOME/mempool/web/* /var/www/html/mempool/
     ln -s /dev/shm/mempool-smart/*.js /var/www/html/mempool/queue/
 
 Restart webserver for changes to take effect.
     sudo systemctl restart apache2.service
 
-Start on startup of with crontab with @reboot
+Start on startup or with crontab with @reboot
     service mysql start
     smartcashd
     
